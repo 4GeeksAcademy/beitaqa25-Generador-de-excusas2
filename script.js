@@ -1,19 +1,21 @@
-const excuses = [
-    "A two headed pinecone yelled at my sandwich in my house",
-    "My cat decided to take a nap on my homework",
-    "A squirrel stole my phone and wouldn't give it back",
-    "My computer decided to update right before the deadline",
-    " parade blocked the only road to my house",
-    "My dog ate my homework",
-    "I accidentally boarded a flight to the wrong city",
-    "My shoes decided to fall apart while I was walking",
-    "A mysterious fog covered everything and I got lost"
-];
+let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
+let action = ['ate', 'peed', 'crushed', 'broke'];
+let what = ['my homework', 'my phone', 'the car'];
+let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
 
-function generateExcuse() {
-    const excuseElement = document.getElementById("excuse");
-    const randomIndex = Math.floor(Math.random() * excuses.length);
-    excuseElement.textContent = excuses[randomIndex];
+function generateRandomExcuse() {
+    let whoIndex = Math.floor(Math.random() * who.length);
+    let actionIndex = Math.floor(Math.random() * action.length);
+    let whatIndex = Math.floor(Math.random() * what.length);
+    let whenIndex = Math.floor(Math.random() * when.length);
+
+    return `${who[whoIndex]} ${action[actionIndex]} ${what[whatIndex]} ${when[whenIndex]}`;
 }
 
-window.onload = generateExcuse;
+function displayExcuse() {
+    let excuseElement = document.getElementById("excuse");
+    excuseElement.textContent = generateRandomExcuse();
+}
+
+window.onload = displayExcuse;
+
